@@ -28,14 +28,22 @@
 	(function(){
 		var url = new URL(window.location.href);
 		var puzzle = url.searchParams.get("puzzle");
-		CrosswordNexus.createCrossword($('div.crossword'), {
-			hover_enabled: false,
-			settings_enabled: false,
-			color_selected: '#FF0000',
-			color_word: '#FFFF00',
-			savegame_name: puzzle,
-			puzzle_file: {url: puzzle, type: 'jpz'}
-		});
+		var config;
+		if (puzzle) {
+			config = {
+				hover_enabled: false,
+				settings_enabled: false,
+				color_selected: '#FF0000',
+				color_word: '#FFFF00',
+				show_metadata: false,
+				savegame_name: puzzle,
+				puzzle_file: {
+					url: puzzle,
+					type: puzzle.slice(puzzle.lastIndexOf('.') + 1)
+				}
+			};
+		}
+		CrosswordNexus.createCrossword($('div.crossword'), config);
 	})();
 </script>
 

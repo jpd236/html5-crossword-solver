@@ -36,7 +36,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
         puzzle_file: null,
         puzzles: null,
         skip_filled_letters: true,
-        savegame_name: ''
+        savegame_name: '',
+        show_metadata: true
     };
 
     // constants
@@ -359,6 +360,9 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
         this.root = $(template);
         this.top_text = this.root.find('div.cw-top-text');
         this.bottom_text = this.root.find('div.cw-bottom-text');
+        if (!this.config.show_metadata) {
+          this.bottom_text.remove();
+        }
 
         this.clues_holder = this.root.find('div.cw-clues-holder');
         this.clues_top_container = this.root.find('div.cw-clues-top');
@@ -1246,7 +1250,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
     CrossWord.prototype.adjustPaddings = function() {
         this.top_text_height = this.top_text.outerHeight(true);
-        this.bottom_text_height = this.bottom_text.outerHeight(true);
+        this.bottom_text_height = this.config.show_metadata ? this.bottom_text.outerHeight(true) : 4;
         this.canvas_holder.css({'padding-top': this.top_text_height, 'padding-bottom': this.bottom_text_height});
     };
 
