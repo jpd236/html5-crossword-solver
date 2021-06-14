@@ -91,7 +91,7 @@ div.cw-open-button::after { content: 'Open JPZ or PUZ file'; position: relative;
 div.cw-open-holder input { visibility: hidden; position: absolute; }
 
 div.cw-canvas { display: inline-block; position: relative; padding: 4px 4px 4px 4px; }
-div.cw-main.loaded canvas { border: 1px solid black; }
+/* div.cw-main.loaded canvas { border: 1px solid black; } */
 
 div.cw-top-text, div.cw-bottom-text { text-align: left; background: #CFCFCF; padding: 2px; }
 div.cw-top-text { position: absolute; top: 0; left: 0; right: 0; overflow: hidden; text-overflow: ellipsis; }
@@ -120,10 +120,38 @@ div.cw-clues-top { position: absolute; top: 0; bottom: 50%; left: 0; right: 0; }
 div.cw-clues-bottom { position: absolute; top: 50%; bottom: 0; left: 0; right: 0; }
 div.cw-clues-title { position: absolute; top: 0; left: 2px; right: 2px; background: #CFCFCF; border-top: 2px solid gray; }
 div.cw-clues-items { display: block; position: absolute; left: 2px; right: 2px; bottom: 0; overflow-y: scroll; }
-div.cw-clues-items div.cw-clue, div.cw-puzzles-list span { position: relative; display: block; text-align: left; box-shadow: 0 0 1px 1px gray inset; cursor: pointer; }
-div.cw-clues-items div.cw-clue:hover, div.cw-puzzles-list span:hover { left: -1px; top: -1px; box-shadow: 1px 1px 1px 0 gray, 0 0 1px 1px gray inset; }
+div.cw-clues-items div.cw-clue, div.cw-puzzles-list span {
+	position: relative;
+	display: block;
+	text-align: left;
+	/* box-shadow: 0 0 1px 1px gray inset; */
+	cursor: pointer;
+}
+div.cw-clues-items div.cw-clue:hover, div.cw-puzzles-list span:hover {
+	left: -1px;
+	top: -1px;
+	/* box-shadow: 1px 1px 1px 0 gray, 0 0 1px 1px gray inset; */
+	background: #eee;
+}
 div.cw-clues-items div.cw-clue.active { background: #FFFCA5; }
-div.cw-clues-items div.cw-clue.passive { background: #FFFFDF; }
+div.cw-clues-items div.cw-clue.passive { background: #eee; }
+
+/* imported from ctfyc */
+.cw-clue-number {
+    flex-shrink: 0;
+    font-weight: 600;
+    margin-right: 10px;
+    text-align: right;
+    width: 30px;
+}
+
+.cw-clue-text {
+    flex: 1 1 auto;
+    min-width: 1px;
+    word-wrap: break-word;
+}
+
+
 
 input.cw-open-jpz {width: 0px; background: #FF0000;}
 
